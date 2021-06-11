@@ -54,23 +54,23 @@ public class AssignmentTwo {
         switch(response){
             case 1:
                 System.out.println(">-1");
-                System.out.println(sum(integers));
+                System.out.println(calculations.sum(integers));
                 break;
             case 2:
                 System.out.println(">-2");
-                System.out.println(evens(integers));
+                System.out.println(calculations.evens(integers));
                 break;
             case 3:
                 System.out.println(">-3");
-                System.out.println(odds(integers));
+                System.out.println(calculations.odds(integers));
                 break;
             case 4:
                 System.out.println(">-4");
-                System.out.println(max(integers));
+                System.out.println(calculations.max(integers));
                 break;
             case 5:
                 System.out.println(">-5");
-                System.out.println(min(integers));
+                System.out.println(calculations.min(integers));
                 break;
             case 6:
                 System.out.println(">-6");
@@ -88,6 +88,8 @@ public class AssignmentTwo {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
+}
+class calculations{
     public static int sum(int[] arr){
         int summation = 0;
         for(int i = 0; i < arr.length; i++){
