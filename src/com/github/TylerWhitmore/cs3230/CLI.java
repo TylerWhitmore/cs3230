@@ -1,5 +1,8 @@
 package src.com.github.TylerWhitmore.cs3230;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CLI {
     public static Scanner myScanner = new Scanner(System.in);
@@ -30,5 +33,12 @@ public class CLI {
             }
         }
         return doubles;
+    }
+
+    public static List<String> getStrings(){
+        System.out.println("Please enter a list of strings separated by spaces:");
+        String[] userInput = myScanner.nextLine().split("\\s+");
+        List<String> listStrings = new ArrayList<String>(Arrays.asList(userInput));
+        return listStrings;
     }
 }
