@@ -8,7 +8,7 @@ public class Main{
         int response;
         boolean cont;
         while(true){
-            System.out.println("Tyler Whitmore - Assignment 3")
+            System.out.println("Tyler Whitmore - Assignment 3");
             System.out.println("Top Menu");
             System.out.println("1. Math Menu");
             System.out.println("2. String Menu");
