@@ -1,5 +1,4 @@
 package src.com.github.TylerWhitmore.cs3230;
-
 import java.util.Scanner;
 
 public class CLI {
@@ -18,18 +17,18 @@ public class CLI {
         return i;
     }
 
-    public static int[] getNewNumbers(){
+    public static double[] getNewNumbers(){
         System.out.println("Please enter a list of integers separated by a space:");
         String[] userInput = myScanner.nextLine().split("\\s+");
-        int[] integers = new int[userInput.length];
+        double[] doubles = new double[userInput.length];
         for(int i = 0; i < userInput.length; i++){
             try{
-                integers[i] = Integer.parseInt(userInput[i]);
+                doubles[i] = Double.parseDouble(userInput[i]);
             }
             catch (NumberFormatException ex){
-                System.out.println("Invalid integer: " + userInput[i]);
+                System.out.println("Invalid double: " + userInput[i]);
             }
         }
-        return integers;
+        return doubles;
     }
 }

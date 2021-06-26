@@ -6,7 +6,7 @@ public class Main{
         boolean cont = true;
         //clearScreen();
         //System.out.println("Please enter a list of integers separated by a space:");
-        int[] integers = CLI.getNewNumbers();
+        double[] integers = CLI.getNewNumbers();
         while(cont){
         System.out.println("Current list of integers:" + Arrays.toString(integers));
         System.out.println("Choose and operation:");
@@ -15,8 +15,11 @@ public class Main{
         System.out.println("3. Odds - finds all the odds");
         System.out.println("4. Max - finds the largest integer");
         System.out.println("5. Min - finds the smallest integer");
-        System.out.println("6. Update - enter a new list of integers");
-        System.out.println("7. Exit");
+        System.out.println("6. Mean - finds the average");
+        System.out.println("7. Standard Deviation - finds the standard deviation");
+        System.out.println("8. 5 Number Summary - min, Q1, median, Q3, max");
+        System.out.println("9. Update - enter a new list of integers");
+        System.out.println("0. Exit");
         int response = CLI.getUserInput();
         switch(response){
             case 1:
@@ -41,10 +44,22 @@ public class Main{
                 break;
             case 6:
                 System.out.println(">-6");
+                System.out.println(Calculations.mean(integers));
+                break;
+            case 7:
+                System.out.println(">-7");
+                System.out.println(Calculations.std(integers));
+                break;
+            case 8:
+                System.out.println(">-8");
+                System.out.println(Calculations.fiveNum(integers));
+                break;
+            case 9:
+                System.out.println(">-9");
                 integers = CLI.getNewNumbers();
                 break;
             default:
-                System.out.println(">-7");
+                System.out.println(">-0");
                 cont = false;
                 break;
         }
