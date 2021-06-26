@@ -1,11 +1,8 @@
 package src.com.github.TylerWhitmore.cs3230;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
-
-public class AssignmentTwo {
+public class CLI {
     private static Scanner myScanner = new Scanner(System.in);
 
     private static int getUserInput(){
@@ -39,7 +36,7 @@ public class AssignmentTwo {
         boolean cont = true;
         //clearScreen();
         //System.out.println("Please enter a list of integers separated by a space:");
-        int[] integers = AssignmentTwo.getNewNumbers();
+        int[] integers = CLI.getNewNumbers();
         while(cont){
         System.out.println("Current list of integers:" + Arrays.toString(integers));
         System.out.println("Choose and operation:");
@@ -50,7 +47,7 @@ public class AssignmentTwo {
         System.out.println("5. Min - finds the smallest integer");
         System.out.println("6. Update - enter a new list of integers");
         System.out.println("7. Exit");
-        int response = AssignmentTwo.getUserInput();
+        int response = CLI.getUserInput();
         switch(response){
             case 1:
                 System.out.println(">-1");
@@ -74,7 +71,7 @@ public class AssignmentTwo {
                 break;
             case 6:
                 System.out.println(">-6");
-                integers = AssignmentTwo.getNewNumbers();
+                integers = CLI.getNewNumbers();
                 break;
             default:
                 System.out.println(">-7");
@@ -91,6 +88,7 @@ public class AssignmentTwo {
 }
 class calculations{
     public static int sum(int[] arr){
+        //return Arrays.stream(arr).sum();
         int summation = 0;
         for(int i = 0; i < arr.length; i++){
             summation += arr[i];

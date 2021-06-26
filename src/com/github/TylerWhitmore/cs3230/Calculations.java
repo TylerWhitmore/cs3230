@@ -1,18 +1,7 @@
 package src.com.github.TylerWhitmore.cs3230;
+import java.util.ArrayList;
 
-public class AssignmentOne{
-    public static void main(String[] args){
-        int  argLength = args.length;
-        int[] results = new int[argLength];
-        for(int i = 0; i < argLength;i++){
-            results[i] = Integer.parseInt(args[i]);
-        }
-        System.out.println("Sum: " + sum(results));
-        System.out.println("Evens: " + evens(results).toString());
-        System.out.println("Odds: " + odds(results));
-        System.out.println("Max: " + max(results));
-        System.out.println("Min: " + min(results));
-    }
+public class Calculations {
     public static int sum(int[] arr){
         int places = arr[0] + 1;
         int summation = 0;
@@ -21,24 +10,22 @@ public class AssignmentOne{
         }
         return summation;
     }
-    public static String evens(int[] arr){
+    public static ArrayList<Integer> evens(int[] arr){
+        ArrayList<Integer> even = new ArrayList<Integer>();
         int places = arr[0] + 1;
-        String even = "";
         for(int i = 1; i < places; i++){
             if(arr[i] % 2 == 0){
-                even += arr[i];
-                even += ' ';
+                even.add(arr[i]);
             }
         }
         return even;
     }
-    public static String odds(int[] arr){
+    public static ArrayList<Integer> odds(int[] arr){
+        ArrayList<Integer> odd = new ArrayList<Integer>();
         int places = arr[0] + 1;
-        String odd = "";
         for(int i = 1; i < places; i++){
             if(arr[i] % 2 != 0){
-                odd += arr[i];
-                odd += ' ';
+                odd.add(arr[i]);
             }
         }
         return odd;
