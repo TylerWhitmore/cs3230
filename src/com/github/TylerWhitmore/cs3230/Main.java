@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class Main{
     public static void main(String[] args){
-        Calculations c = new Calculations();
         boolean cont = true;
         //clearScreen();
         //System.out.println("Please enter a list of integers separated by a space:");
@@ -22,7 +21,7 @@ public class Main{
         switch(response){
             case 1:
                 System.out.println(">-1");
-                System.out.println(c.sum(integers));
+                System.out.println(Calculations.sum(integers));
                 break;
             case 2:
                 System.out.println(">-2");

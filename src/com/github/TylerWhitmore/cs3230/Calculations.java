@@ -2,7 +2,7 @@ package src.com.github.TylerWhitmore.cs3230;
 import java.util.ArrayList;
 
 public class Calculations {
-    public int sum(int[] arr){
+    public static int sum(int[] arr){
         int places = arr[0] + 1;
         int summation = 0;
         for(int i = 1; i < places; i++){
