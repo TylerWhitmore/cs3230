@@ -1,4 +1,4 @@
-package src.com.github.TylerWhitmore.cs3230.GUI;
+package com.github.TylerWhitmore.cs3230.GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
