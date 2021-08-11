@@ -41,8 +41,10 @@ public class Gui {
                 switch(operation){
                     case "Min":
                         solveArea.setText(String.valueOf(Calculations.min(d)));
+                        break;
                     case "Max":
                         solveArea.setText(String.valueOf(Calculations.max(d)));
+                        break;
                     case "Evens":
                         String outputEvens = "";
                         ArrayList<String> listEvens = new ArrayList<>();
@@ -53,6 +55,7 @@ public class Gui {
                             outputEvens += s + ' ';
                         }
                         solveArea.setText(outputEvens);
+                        break;
                     case "Odds":
                         String outputOdds = "";
                         ArrayList<String> listOdds = new ArrayList<>();
@@ -63,10 +66,13 @@ public class Gui {
                             outputOdds += s + ' ';
                         }
                         solveArea.setText(outputOdds);
+                        break;
                     case "Sum":
                         solveArea.setText(String.valueOf(Calculations.sum(d)));
+                        break;
                     case "Std Deviation":
                         solveArea.setText(String.valueOf(Calculations.std(d)));
+                        break;
                     case "Five Number Summary":
                         double[] fiveNum = new double[5];
                         ArrayList<String> stringFive = new ArrayList<String>();
@@ -79,8 +85,10 @@ public class Gui {
                             outputFive += ss + ' ';
                         }
                         solveArea.setText(outputFive);
+                        break;
                     default:
-                        solveArea.setText("Not a valid operation");
+                        solveArea.setText(operation);
+                        //solveArea.setText("Not a valid operation");
                         break;
                 }
             }
@@ -109,8 +117,4 @@ public class Gui {
         return doubles;
     }
 
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }

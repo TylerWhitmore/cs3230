@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.com.github.TylerWhitmore.cs3230.GUI.Gui">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.github.TylerWhitmore.cs3230.GUI.Gui">
   <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -54,7 +54,7 @@
           <text value="Solution Here"/>
         </properties>
       </component>
-      <component id="2f499" class="javax.swing.JLabel" binding="currentNumLabel" custom-create="true">
+      <component id="2f499" class="javax.swing.JLabel" binding="currentNumLabel">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="10" use-parent-layout="false"/>
         </constraints>
