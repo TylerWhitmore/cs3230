@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.apache.commons.lang3.ArrayUtils; //lang3 from https://www.youtube.com/watch?v=iHbiY1i4ivc
 import src.com.github.TylerWhitmore.cs3230.Calculations;
 
-public class Gui {
+public class MathGUI {
     private JTextField submitField;
     private JButton submitButton;
     private JComboBox operationsBox;
@@ -19,7 +19,7 @@ public class Gui {
 
     Double[] nums;
 
-    public Gui(){
+    public MathGUI(){
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,10 +96,14 @@ public class Gui {
     }
     public static void main(String[] args){
         JFrame frame = new JFrame("CS3230 Project");
-        frame.setContentPane(new Gui().rootPanel);
+        frame.setContentPane(new MathGUI().rootPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public JPanel getRootPanel() {
+        return rootPanel;
     }
 
     private Double[] getNewNumbers(){
