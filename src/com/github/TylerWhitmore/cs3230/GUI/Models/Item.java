@@ -1,11 +1,14 @@
 package com.github.TylerWhitmore.cs3230.GUI.Models;
 
+import com.google.gson.JsonObject;
+
 import java.util.Date;
 
 public class Item {
     String etag;
     Id id;
-    Snippet snippet;
+    //Snippet snippet;
+    JsonObject snippet;
 
     public String getEtag(){
         return "ItemEtag";
@@ -14,7 +17,7 @@ public class Item {
     public Id getId() {
         return id;
     }
-    public Snippet getSnippet(){
+    public JsonObject getSnippet(){
         return snippet;
     }
 

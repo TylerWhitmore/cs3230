@@ -29,16 +29,18 @@ public class YoutubeGUI {
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 Result result = client.getResult("");
                 try {
                     //something like this
-                    URL imageUrl = new URL(/*result.getUrl()*/);
+                    URL imageUrl = new URL(//result.getUrl());
                     BufferedImage image = ImageIO.read(imageUrl);
                     contentPanel.setIcon(new ImageIcon(image));
                 }
                 catch (IOException malformedURLException){
                     malformedURLException.printStackTrace();
                 }
+                */
             }
         });
     }
