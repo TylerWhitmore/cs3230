@@ -1,59 +1,43 @@
 package com.github.TylerWhitmore.cs3230.GUI;
 
-import com.github.TylerWhitmore.cs3230.GUI.Models.Item;
-import com.github.TylerWhitmore.cs3230.GUI.Models.Result;
-import com.google.gson.Gson;
+import com.github.TylerWhitmore.cs3230.GUI.Models.Video;
 import com.google.gson.JsonObject;
-import kong.unirest.HttpRequest;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
-
-import java.util.Arrays;
 
 public class HttpClient {
     static String baseUrl = "https://youtube.googleapis.com";
     static String apiKey = "AIzaSyASnLP93xb2mlh-7-F6lg-7HNlso7mrB_c";
 
-    public static Result getResult(String q){
+    public static JsonObject getResult(String q){
         return Unirest.get(baseUrl + "/youtube/v3/search")
                 .queryString("part","snippet")
                 .queryString("order","viewCount")
                 .queryString("q",q)
                 .queryString("key",apiKey)
                 .queryString("kind","youtube#video")
-                .asObject(Result.class).getBody();
+                .asObject(JsonObject.class).getBody();
     }
 
-    public static Result getResult(){
+    public static JsonObject getResult(){
         return Unirest.get(baseUrl + "/youtube/v3/search")
-                .queryString("part","snippet")
-                .queryString("order","viewCount")
-                .queryString("q","RossBoomsocks")
-                .queryString("key",apiKey)
-                .queryString("kind","youtube#video")
-                .asObject(Result.class).getBody();
+                .queryString("part","snippet") //needs to be snippet
+                .queryString("order","viewCount") //needs to be viewCount
+                .queryString("q","RossBoomsocks") //whatever the person searches for
+                .queryString("key",apiKey) //api key
+                .queryString("kind","youtube#video") //only pull up videos
+                .asObject(JsonObject.class).getBody();
     }
 
     public static void main(String[] args) {
+        JsonObject response = getResult("Let's Game It Out");
+        JsonObject item = response.getAsJsonArray("items").get(0).getAsJsonObject();
+        Video test = Video.deserialize(item);
 
-        Result response = getResult("Let's Game It Out");
-        Result response2 = getResult();
-        System.out.println(response.getEtag());
-        JsonObject x = response.getItem();
-        String test;
-        for (String i : x){
-            test = x.get("etag").getAsString();
-            System.out.println(test);
+        try {
+            System.out.println(test.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
-        //System.out.println(Arrays.toString(response.getItem()));
-        System.out.println(response2.getEtag());
-//        for (Item x : response.getItem()){
-//            System.out.println(x.getEtag());
-//        }
-        //System.out.println(Arrays.toString(response.getItem()));
     }
 
 }
