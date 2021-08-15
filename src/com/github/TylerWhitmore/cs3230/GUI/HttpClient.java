@@ -32,7 +32,6 @@ public class HttpClient {
         JsonObject response = getResult("Let's Game It Out");
         JsonObject item = response.getAsJsonArray("items").get(0).getAsJsonObject();
         Video test = Video.deserialize(item);
-
         try {
             System.out.println(test.toString());
         } catch (Exception e) {

@@ -1,46 +1,43 @@
 package com.github.TylerWhitmore.cs3230.GUI;
 
-import com.github.TylerWhitmore.cs3230.GUI.Models.Result;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-import javax.imageio.ImageIO;
+import com.github.TylerWhitmore.cs3230.GUI.Models.Video;
+import com.google.gson.JsonObject;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-//AIzaSyASnLP93xb2mlh-7-F6lg-7HNlso7mrB_c
+
 public class YoutubeGUI {
     private JPanel rootPanel;
     private JTextField searchField;
     private JButton searchBtn;
     private JPanel searchPanel;
-    private JScrollPane contentPanel;
-    private HttpClient client = new HttpClient();
+    private JLabel titleLabel;
+    private JTextArea descArea;
+    private String userInput;
+    private String baseUrl = "https://www.youtube.com/watch?v=";
 
     public YoutubeGUI() {
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*
-                Result result = client.getResult("");
-                try {
-                    //something like this
-                    URL imageUrl = new URL(//result.getUrl());
-                    BufferedImage image = ImageIO.read(imageUrl);
-                    contentPanel.setIcon(new ImageIcon(image));
+                if(searchField.getText().isEmpty()){
+                    userInput = "RossBoomsocks";
                 }
-                catch (IOException malformedURLException){
-                    malformedURLException.printStackTrace();
+                else {
+                    userInput = searchField.getText();
                 }
-                */
+                JsonObject trial = HttpClient.getResult(userInput);
+                JsonObject item = trial.getAsJsonArray("items").get(0).getAsJsonObject();
+                Video test = Video.deserialize(item);
+                titleLabel.setText(test.getVideoChannel() + " - " + test.getVideoTitle());
+                descArea.setText((test.getVideoDesc()));
+
+                SimpleSwingBrowser browser = new SimpleSwingBrowser();
+                browser.setVisible(true);
+                browser.loadURL(baseUrl + test.getVideoId());
             }
         });
     }
@@ -50,6 +47,12 @@ public class YoutubeGUI {
     }
 
     public static void main(String[] args) throws IOException {
-
+        JFrame frame = new JFrame("CS3230 Project");
+        frame.setContentPane(new YoutubeGUI().rootPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(620,440);
+        frame.pack();
+        frame.setVisible(true);
     }
+
 }
