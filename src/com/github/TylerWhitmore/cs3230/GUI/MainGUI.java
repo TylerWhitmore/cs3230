@@ -3,9 +3,6 @@ package com.github.TylerWhitmore.cs3230.GUI;
 import javax.swing.*;
 
 public class MainGUI {
-    public JPanel getRootPanel() {
-        return rootPanel;
-    }
 
     public JTabbedPane getTabbedPane1() {
         return tabbedPane1;
@@ -18,8 +15,7 @@ public class MainGUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Main");
         MainGUI gui = new MainGUI();
-        gui.getTabbedPane1().addTab("Math", new MathGUI().getRootPanel());
-        gui.getTabbedPane1().addTab("Youtube", new YoutubeGUI().getRootPanel());
+        gui.getTabbedPane1().addTab("Ticker", new SearchGUI().getRootPanel());
         frame.setContentPane(gui.rootPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();frame.setVisible(true);
